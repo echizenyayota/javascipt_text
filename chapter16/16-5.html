@@ -13,9 +13,10 @@
         window.onload = function() {
             var url = "jsonp.js";
             var script = document.createElement("script");
-            console.log(script);
+            // console.log(script);
             script.setAttribute("src", url);
-            console.log(script.setAttribute("src", url));
+            console.log(document.getElementsByTagName("head"));
+            console.log(document.getElementsByTagName("head")[0]);
             document.getElementsByTagName("head")[0].appendChild(script);
         }
     </script>
