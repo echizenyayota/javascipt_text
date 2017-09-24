@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>16-5</title>
+</head>
+<body>
+    <div id="display"></div>
+    <script>
+        window.onload = function() {
+            var result = document.getElementById("display");
+            window.addEventListener("message", function(e){
+                // オリジンは同じであるとする
+                var sourceOrigin = location.origin;
+                // 送信元のオリジンがこのサイトと同一オリジンであるかどうかを検証
+                if (e.origin !== sourceOrigin) return;
+                display.textContent = e.data;
+            }, false);
+        }
+    </script>
+</body>
+</html>
