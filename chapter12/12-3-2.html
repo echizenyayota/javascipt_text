@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>String object</title>
+</head>
+<body>
+    <script>
+         // 文字列の置換 replaceメソッドの基本
+         var s = "1 little,2 little indian";
+         console.log(s.replace(/indian/, "boy")); // 1 little,2 little boy
+         console.log(s.replace(/little/, "big")); // 1 big,2 little indian
+         console.log(s.replace(/little/g, "big")); // 1 big,2 big indian
+
+         // 置換パターン $n 部分正規表現中、n番目の部分正規表現にマッチした文字列が挿入される
+         var person = "Tom, tom@example.com, 010-1234-5678";
+         var p = person.replace(/0(\d{1,4}-\d{1,4}-\d{4})/g, "+81-$1");    // 電話番号の最初の"0"を”+81-”に置換する
+         console.log(p);
+
+        //  var date = "今日の日付は2017年10月1日です。";
+        //  var d = date.replace(/(\d+)年(\d+)月(\d+)日/, ”$1”);
+        //  console.log(d);
+
+         // 置換パターン $&
+
+    </script>
+</body>
+</html>
