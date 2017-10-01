@@ -8,7 +8,7 @@
     <script>
         console.log(/[a-zA-Z0-9]/.test("10 little English boys"));　// 半角英数字　→ true
 
-        console.log(/[\u3041-\u3096]/.test("いろはにほへとちりぬるをわかよたれそつねならむ")); 　// 日本語のひらがな → true
+        console.log(/[\u3041-\u3096]/.test("いろはにほへとちりぬるをわかよたれそつねなら")); 　// 日本語のひらがな → true
         console.log(/[\u30A1-\u30FA]/.test("イロハニホヘトチリヌルヲワカヨタレソツネナラム"));  // 日本語のカタカナ → true
 
         console.log(/[\u3400-\u9FFF]/.test("國破山河在城春草木深"));  // CJK統合漢字拡張A、CJK統合漢字の一文字　 → true
@@ -16,6 +16,9 @@
         console.log(/[\uF900-\uFAFF]/.test("福"));  // CJK互換漢字の一文字 → true
 
         console.log(/[\u3041-\u3096\u3400-\u9FFF]/.test("色は匂えど散りぬる我が世誰ぞ常ならむ")); // → true
+
+        var h = /\p{Script=Hiragana}/;
+        console.log(h.test("いろはにほへとちりぬるをわかよたれそつねならむ")); // Unicodeプロパティのスクリプトがサポートされている場合 → 自分の場合 false
     </script>
 </body>
 </html>
