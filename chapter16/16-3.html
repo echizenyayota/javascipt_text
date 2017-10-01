@@ -13,7 +13,7 @@
 
         console.log(/[\u3400-\u9FFF]/.test("國破山河在城春草木深"));  // CJK統合漢字拡張A、CJK統合漢字の一文字　 → true
         console.log(/[\uF900-\uFAFF]/.test("国破山河在城春草木深"));  // CJK統合漢字の一文字 → false
-        console.log(/[\uF900-\uFAFF]/.test("福"));  // CJK互換漢字の一文字 → false
+        console.log(/[\uF900-\uFAFF]/.test("福"));  // CJK互換漢字の一文字 → true
 
         console.log(/[\u3041-\u3096\u3400-\u9FFF]/.test("色は匂えど散りぬる我が世誰ぞ常ならむ")); // → true
     </script>
