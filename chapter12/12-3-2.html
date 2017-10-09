@@ -7,21 +7,44 @@
 <body>
     <script>
          // 文字列の置換 replaceメソッドの基本
-         var s = "1 little,2 little indian";
-         console.log(s.replace(/indian/, "boy")); // 1 little,2 little boy
-         console.log(s.replace(/little/, "big")); // 1 big,2 little indian
-         console.log(s.replace(/little/g, "big")); // 1 big,2 big indian
+        //  var s = "1 little,2 little indian";
+        //  console.log(s.replace(/indian/, "boy")); // 1 little,2 little boy
+        //  console.log(s.replace(/little/, "big")); // 1 big,2 little indian
+        //  console.log(s.replace(/little/g, "big")); // 1 big,2 big indian
 
          // 置換パターン $n 部分正規表現中、n番目の部分正規表現にマッチした文字列が挿入される
-         var person = "Tom, tom@example.com, 010-1234-5678";
-         var p = person.replace(/0(\d{1,4}-\d{1,4}-\d{4})/g, "+81-$1");    // 電話番号の最初の"0"を”+81-”に置換する
-         console.log(p);
+        //  var person = "Tom, tom@example.com, 010-1234-5678";
+        //  var p = person.replace(/0(\d{1,4}-\d{1,4}-\d{4})/g, "+81-$1");    // 電話番号の最初の"0"を”+81-”に置換する
+        //  console.log(p);
 
         //  var date = "今日の日付は2017年10月1日です。";
-        //  var d = date.replace(/(\d+)年(\d+)月(\d+)日/, ”$1”);
+        //  var d = date.replace(/(\d+)年(\d+)月(\d+)日/, "$1/$2/$3");
         //  console.log(d);
+         //
+        //  var name = "Tom Sawyer";
+        //  var result = name.replace(/(\w+)\s(\w+)/, "$2 $1");
+        //  console.log(result);
 
          // 置換パターン $&
+        //  var address = "131-0045 東京都墨田区押上";
+        //  var a = address.replace(/\d{3}-\d{4}/, "〒$&");
+        //  console.log(a);
+
+        // ひらがなをカタカナに変換する
+        var text = "犬は「わんわん」と鳴きました。";
+        var new_text = text.replace(/「[\u3041-\u3096]+」/g, function(match) {
+            var s = "";
+            for (var i = 1; i < match.length-1; i++) {
+                s += String.fromCharCode(match.charCodeAt(i) + 0x60);
+            }
+            console.log(match);
+            console.log(match[0]);
+            console.log(match[match.length - 1]);
+            console.log(s);
+            return match[0] + s + match[match.length - 1];
+        });
+        console.log(new_text);
+
 
     </script>
 </body>
