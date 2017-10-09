@@ -9,9 +9,9 @@
     <div id = "katakana"></div>
     <script>
         var hiragana = document.getElementById('hiragana');
+        var text = "犬は「わんわん」と鳴きました。";
 
         // ひらがなをカタカナに変換する
-        var text = "犬は「わんわん」と鳴きました。";
         var new_text = text.replace(/「[\u3041-\u3096]+」/g, function(match) {
             var s = "";
             for (var i = 1; i < match.length-1; i++) {
@@ -24,6 +24,7 @@
             return match[0] + s + match[match.length - 1];
         });
 
+        // katakanクラスに置換後の文字列を挿入
         function r () {
             return katakana.innerHTML = new_text;
         }
